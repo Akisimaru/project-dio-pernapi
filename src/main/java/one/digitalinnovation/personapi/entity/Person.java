@@ -5,6 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import one.digitalinnovation.personapi.enums.CriminalStatus;
 
 import javax.persistence.*;
 import java.time.LocalDate;
@@ -28,10 +29,21 @@ public class Person {
     @Column(nullable = false)
     private String lastName;
 
+    private String nickName;
+
+    private String description;
+
     @Column(nullable = false, unique = true)
     private String cpf;
 
     private LocalDate birthDate;
+
+    @Column(nullable = false)
+    private String crime;
+
+    @Enumerated(EnumType.STRING)
+    @Column(nullable = false)
+    private CriminalStatus status;
 
 
 
